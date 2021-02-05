@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Raumliste</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/detailseite.css">
+</head>
+<body>
+    <%-include("header&navi.ejs")%>
+    <main id="hauptContainer" class=<%=einheit.fach%>>
+        <div id="name"><p class="student">Student/in: <%= einheit.student%></p></div>
+        <div id="kalender">
+            <img src="img/Kalender.png" alt="Kalendersymbol">
+            <div class="inner">
+                <p class="divTitel">Lohn: </p>
+                <p><%=einheit.wochentag%></p>
+            </div>
+        </div>
+        <div id="fach"><%= erstelleFach(einheit.fach)%></div>
+        <div id="zeiten" >
+            <p class="divTitel">Uhrzeit: </p>
+            <p> <%=einheit.zeitVon%> - <%=einheit.zeitBis%></p>
+        </div>
+        <div id="lernziele">
+            <p class="divTitel">Lernziele:</p>
+            <%if(einheit.lernziele===undefined){ %>
+                <p>Keine Lernziele definiert</p>
+            <%}else{%>
+                <p><%=einheit.lernziele%></p>
+            <%}%>
+        </div>
+        <div id="lohn">
+            <p class="divTitel">Lohn: </p>
+            <p><%=einheit.stundenlohn%>€ / h</p>
+        </div>
+        <div id="infos">
+            <p class="divTitel">Weitere Infos:</p>
+            <%if(einheit.weitereInfos===undefined){ %>
+                <p>Keine weiteren Infos</p>
+            <%}else{%>
+            <p><%=einheit.weitereInfos%></p>
+            <%}%>
+        </div>
+    </main>
+    <%-include("aside")%>
+    <%-include("footer")%>
+</body>
+</html>`
+
+<% function erstelleFach(fach){
+    switch (fach) {
+        case "Mathematik":{%>
+    <img src="img/Mathe.png" alt="Mathematiksymbol">
+    <div class="inner">
+        <p class="divTitel">Fach: </p>
+        <p>Mathematik</p>
+    </div><%}break;
+        case "Biologie":{%>
+    <img src=img/Biologie.png" alt="Biologiesymbol">
+    <div class="inner">
+        <p class="divTitel">Fach: </p>
+        <p>Biologie</p>
+    </div><%}break;
+        case "Chemie":{%>
+    <img src="img/Chemie.png" alt="Chemiesymbol">
+    <div class="inner">
+        <p class="divTitel">Fach: </p>
+        <p>Chemie</p>
+    </div><%}break;
+        case "Englisch":{%>
+    <img src="img/Englisch.png" alt="Englischsymbol">
+    <div class="inner">
+        <p class="divTitel">Fach: </p>
+        <p>Englisch</p>
+    </div><%}break;
+        case "Erdkunde":{%>
+    <img src="img/Erdkunde.png" alt="Erdkundesymbol">
+    <div class="inner">
+        <p class="divTitel">Fach: </p>
+        <p>Erdkunde</p>
+    </div><%}break;
+    }
+}%>

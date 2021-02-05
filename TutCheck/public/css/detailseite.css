@@ -1,0 +1,91 @@
+/*Definition des Grid-Layouts*/
+#hauptContainer{
+    display: grid;
+    grid-template-areas: "name name"
+    "fach kalender"
+    "lernziele zeiten"
+    "lernziele lohn"
+    "lernziele infos";
+    grid-template-columns: 50% 50%;
+}
+#name{
+    grid-area: name;
+}
+#kalender{
+    grid-area:kalender;
+}
+#fach{
+    grid-area: fach;
+}
+#zeiten{
+    grid-area: zeiten;
+}
+#lernziele{
+    grid-area: lernziele;
+}
+#lohn{
+    grid-area: lohn;
+}
+#infos{
+    grid-area: infos;
+}
+
+
+/* Farben definieren*/
+header,nav,aside,footer{
+    background-color: lightgrey;
+}
+.Biologie{
+    background-color: lightgreen;
+}
+.Chemie{
+    background-color: lightsalmon;
+}
+.Mathematik{
+    background-color: lightblue;
+}
+.Erdkunde{
+    background-color: sandybrown;
+}
+.Englisch{
+    background-color: lightcoral;
+}
+p.student{
+    font-size: larger;
+    font-style: italic;
+}
+div img{
+    margin: 5px 15px 5px 5px;
+    height: 100px;
+}
+#fach,#kalender{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+#lohn,#zeiten{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+div[id] p{
+    margin: 5px 0px 5px 5px;
+}
+div{
+    border: 2px solid darkgrey;
+}
+.inner{
+    border: 0px solid darkgrey;
+}
+.divTitel{
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+div p{
+    margin-top: 5px;
+    margin-top: 5px;
+}

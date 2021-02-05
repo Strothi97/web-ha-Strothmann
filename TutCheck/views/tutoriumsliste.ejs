@@ -9,16 +9,16 @@
 
 <body>
 <%-include("header&navi.ejs")%>
-    <div class="mittelteil">
-        <div class="haupt">
+    <div>
+        <div>
 
             <main>
                 <ul>
                     <% for (einheit of einheiten){ %>
                          <li>
-                              <a href="detailseite"><%= einheit.id%>. <%= einheit.Schueler%></a>
-                              <label><%= einheit.Fach%></label>
-                             <label><%= einheit.Start%></label>
+                              <a href="/detailseite?id=<%=einheit.id%>"><%= einheit.id%>. <%= einheit.student%></a>
+                              <label><%= einheit.fach%></label>
+                             <label><%= einheit.wochentag%></label>
                         </li>
                      <%  }%>
                 </ul>
@@ -29,4 +29,4 @@
         <%-include("footer")%>
 </body>
 
-</html>`
+</html>
