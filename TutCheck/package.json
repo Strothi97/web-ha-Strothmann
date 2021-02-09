@@ -10,6 +10,7 @@
   "author": "Felix Strothmann",
   "license": "ISC",
   "dependencies": {
+    "alert": "^5.0.10",
     "ejs": "^3.1.5",
     "express": "^4.17.1"
   }

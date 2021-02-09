@@ -1,72 +1,79 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Neue Einheit bestimmen</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/flexbox.css">
+    <link rel="stylesheet" href="css/allgemein.css">
+    <link rel="stylesheet" href="css/neueEinheit.css">
 </head>
-<body>
+<body id="body">
 <%- include("header&navi.ejs") %>
-    <form action="http://localhost:8060/neueEinheit" role="form" method="POST">
-        <main>
-            <fieldset>
-                <p>
-                    <label for="student">Name:</label>
-                    <input name="student" required/>
-                </p>
-                <p>
-                    <label for="fach">Fach:</label>
-                    <select name="fach" size="1" required>
-                        <option>Mathematik</option>
-                        <option>Englisch</option>
-                        <option>Biologie</option>
-                        <option>Chemie</option>
-                        <option>Erdkunde</option>
-                    </select>
-                </p>
-                <legend>Meta</legend>
-            </fieldset>
-            <fieldset>
-                <p>
-                    <label for="wochentag">Wochentag:</label>
-                    <select name="wochentag" size="1" required>
-                        <option>Montag</option>
-                        <option>Dienstag</option>
-                        <option>Mittwoch</option>
-                        <option>Donnerstag</option>
-                        <option>Freitag</option>
-                        <option>Samstag</option>
-                        <option>Sonntag</option>
-                    </select>
-                </p>
-                <p>
-                    <label for="zeitVon">Zeit von:</label>
-                    <input type="time" name="zeitVon" required min="00:00" max="23:59" value="08:00"/>
-                </p>
-                <p>
-                    <label for="zeitBis">Zeit bis:</label>
-                    <input type="time" name="zeitBis" required min="00:00" max="23:59" value="09:00"/>
-                </p>
-                <legend>Termin</legend>
-            </fieldset>
-            <fieldset>
-                <p>
-                    <label for="stundenlohn">Stundenlohn (€):</label>
-                    <input type="number" step="0.01" min="0.00" name="stundenlohn"/>
-                </p>
-                <p>Lernziele:</p>
-                <p>
-                    <textarea name="lernziele" cols="50" rows="4" maxlength="500" placeholder="Hier können die Lernziele bestimmt werden"></textarea>
-                </p>
-                <p>Weitere Infos:</p>
-                <p>
-                    <textarea name="weitereInfos" cols="50" rows="4" maxlength="500" placeholder="Hier können weitere Infos angegeben werden"></textarea>
-                </p>
-                <legend>Details</legend>
-            </fieldset>
-            <button>Einheit erstellen</button>
-        </main>
-    </form>
-<%- include("aside.ejs") %>
-<%- include("footer.ejs") %>
+<form action="http://localhost:8060/neueEinheit" method="POST">
+    <main id="hauptContainer">
+        <fieldset id="meta">
+            <legend>Meta</legend>
+            <div class="metaTermin">
+                <label class="metaLabel" for="student">Name:</label>
+                <input id="student" type="text" name="student" placeholder="Max Mustermann" required/>
+            </div>
+            <div class="metaTermin">
+                <label class="metaLabel" for="fach">Fach:</label>
+                <select id="fach" name="fach" size="1" required>
+                    <option hidden></option>
+                    <option>Mathematik</option>
+                    <option>Englisch</option>
+                    <option>Biologie</option>
+                    <option>Chemie</option>
+                    <option>Erdkunde</option>
+                </select>
+            </div>
+        </fieldset>
+        <fieldset id="termin">
+            <legend>Termin</legend>
+            <div class="metaTermin">
+                <label for="wochentag">Wochentag:</label>
+                <select id="wochentag" name="wochentag" size="1" required>
+                    <option hidden></option>
+                    <option>Montag</option>
+                    <option>Dienstag</option>
+                    <option>Mittwoch</option>
+                    <option>Donnerstag</option>
+                    <option>Freitag</option>
+                    <option>Samstag</option>
+                    <option>Sonntag</option>
+                </select>
+            </div>
+            <div class="metaTermin">
+                <label for="zeitVon">Zeit von:</label>
+                <input id="zeitVon" type="time" name="zeitVon" required min="00:00" max="23:59" value="08:00"/>
+            </div>
+            <div class="metaTermin">
+                <label for="zeitBis">Zeit bis:</label>
+                <input id="zeitBis" type="time" name="zeitBis" required min="00:00" max="23:59" value="09:00"/>
+            </div>
+        </fieldset>
+        <fieldset id="details">
+            <legend>Details</legend>
+            <div id="divLohn">
+                <label for="stundenlohn">Stundenlohn (€):</label>
+                <input id="stundenlohn" type="number" step="0.01" min="0.00" name="stundenlohn" value="0.00"/>
+            </div>
+            <div id="divTextareas">
+                <div id="divLernziel">
+                    <label for="lernziele">Lernziele:</label>
+                    <textarea id="lernziele" name="lernziele" rows="5"
+                              placeholder="Hier können die Lernziele bestimmt werden"></textarea>
+                </div>
+                <div id="divWeitereInfos">
+                    <label for="weitereInfos">Weitere Infos:</label>
+                    <textarea id="weitereInfos" name="weitereInfos" rows="5"
+                              placeholder="Hier können weitere Infos angegeben werden"></textarea>
+                </div>
+            </div>
+        </fieldset>
+        <button id="btn">Einheit erstellen</button>
+    </main>
+</form>
+<%- include("aside&footer.ejs") %>
 </body>
+</html>

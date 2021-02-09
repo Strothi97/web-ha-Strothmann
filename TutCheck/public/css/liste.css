@@ -1,0 +1,41 @@
+table{
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+tr.tr td{
+    border-bottom: 1px solid black;
+}
+table{
+    border-spacing: 5px;
+}
+
+
+/* Damit die Zelle zentriet wird von Fach und Wochentag*/
+td label{
+    display: flex;
+    justify-content: center;
+}
+/*Definiert dass alle Einträge eine gleiche Größe haben*/
+th,td{
+    width: 200px;
+}
+th{
+    background-color: rgba(190, 194, 210, 0.84);
+}
+td a{
+    text-decoration: none;
+}
+@media screen and (max-width: 625px){
+    .tableWochentag{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .tableFach{
+        display: none;
+    }
+}

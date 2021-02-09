@@ -10,6 +10,8 @@
 }
 #name{
     grid-area: name;
+    display: flex;
+    justify-content: center;
 }
 #kalender{
     grid-area:kalender;
@@ -32,29 +34,26 @@
 
 
 /* Farben definieren*/
-header,nav,aside,footer{
-    background-color: lightgrey;
-}
 .Biologie{
     background-color: lightgreen;
 }
 .Chemie{
-    background-color: lightsalmon;
+    background-color: #f5ac40;
 }
 .Mathematik{
     background-color: lightblue;
 }
 .Erdkunde{
-    background-color: sandybrown;
+    background-color: #ba7e51;
 }
 .Englisch{
-    background-color: lightcoral;
+    background-color: #f08080;
 }
 p.student{
     font-size: larger;
     font-style: italic;
 }
-div img{
+main div img{
     margin: 5px 15px 5px 5px;
     height: 100px;
 }
@@ -88,4 +87,17 @@ div{
 div p{
     margin-top: 5px;
     margin-top: 5px;
+}
+
+@media screen and (max-width: 625px){
+    #hauptContainer{
+        grid-template-areas: "name"
+        "fach"
+        "kalender"
+        "zeiten"
+        "lohn"
+        "lernziele"
+        "infos";
+        grid-template-columns: auto;
+    }
 }

@@ -1,32 +1,40 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>Raumliste</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/flexbox.css">
+    <link rel="stylesheet" href="css/allgemein.css">
+    <link rel="stylesheet" href="css/liste.css">
 </head>
 
 <body>
-<%-include("header&navi.ejs")%>
-    <div>
-        <div>
-
-            <main>
-                <ul>
-                    <% for (einheit of einheiten){ %>
-                         <li>
-                              <a href="/detailseite?id=<%=einheit.id%>"><%= einheit.id%>. <%= einheit.student%></a>
-                              <label><%= einheit.fach%></label>
-                             <label><%= einheit.wochentag%></label>
-                        </li>
-                     <%  }%>
-                </ul>
-            </main>
-        </div>
-        <%-include("aside")%>
-        </div>
-        <%-include("footer")%>
+<%- include("header&navi.ejs") %>
+<main>
+    <table>
+        <thead>
+        <th>
+            <label>Student/in</label>
+        </th>
+        <th class="tableFach">
+            <label>Fach</label>
+        </th>
+        <th class="tableWochentag">
+            <label>Wochentag</label>
+        </th>
+        </thead>
+        <tbody>
+        <% for (einheit of einheiten){ %>
+        <tr class="tr">
+            <td><a href="/detailseite?id=<%= einheit.id %>"><%= einheit.id %>. <%= einheit.student %></a></td>
+            <td class="tableFach"><label><%= einheit.fach %></label></td>
+            <td class="tableWochentag"><label><%= einheit.wochentag %></label></td>
+        </tr>
+        <% } %>
+        </tbody>
+    </table>
+</main>
+<%- include("aside&footer") %>
 </body>
 
 </html>

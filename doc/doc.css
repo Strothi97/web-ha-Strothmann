@@ -1,0 +1,79 @@
+*{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+ul{
+    list-style: none;
+}
+article p, article article, article section h3, article table {
+    margin-left: 35px;
+}
+
+article section section h4{
+    margin-left: 55px;
+}
+article section section p,article section section table{
+    margin-left: 70px;
+}
+article section section ul{
+    padding-left: 0px;
+    margin-left: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+table,td,th{
+    border: 2px solid darkgray;
+    border-collapse: collapse;
+}
+.url,.http{
+    width: 15%;
+}
+td.url,td.http,td.aktion{
+    padding-left: 10px;
+}
+.url,.http,.aktion{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.aktion{width: auto}
+body{
+    background-color: lightgrey;
+}
+header{
+    background-color: rgba(190, 194, 210, 0.84);
+}
+nav{
+    background-color: rgba(173, 178, 196, 0.84);
+}
+header p{
+    margin-bottom: 0px;
+    padding-bottom: 8px;
+}
+header h1{
+    padding-top: 15px;
+}
+#außenUl{
+    margin-top: 0px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+b { margin: 0px 5px}
+#class5{
+    list-style: initial;
+    padding-left: 20px;
+}
+.autorIn{
+    width: 70%;
+}
+td.autorIn{
+    padding-left: 20px;
+}
+.dateien{width: auto}
+
+article table{
+    margin-bottom: 40px;
+}
+tr{
+    padding-bottom: 5px;
+}

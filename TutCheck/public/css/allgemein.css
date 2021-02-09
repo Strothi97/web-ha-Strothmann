@@ -1,0 +1,89 @@
+
+*{
+    font-family: Arial;
+}
+body{
+    background-color: lightgrey;
+}
+header{
+    background-color: rgba(190, 194, 210, 0.84);
+}
+h1{
+    font-family: "Segoe Print";
+    font-size: 3em;
+    margin-top: 0px;
+    text-shadow: 1px 1px grey;
+    letter-spacing: 2px;
+    padding: 5px 5px 5px 5px;
+}
+nav{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(173, 178, 196, 0.84);
+    flex-direction: row;
+}
+nav a{
+    margin: 5px 40px;
+}
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header div{
+    display: flex;
+    flex-direction: row;
+    border : 0px;
+    margin-top: 15px;
+}
+header p{
+    display: inline-block;
+    margin-bottom: 15px;
+}
+/* Damit das Bild neben dem Titel schwebt*/
+header img{
+    display: flex;
+    float: left;
+    height: 100px;
+    margin: 5px 15px 5px 5px;
+}
+nav ul li{
+    display: inline-block;
+    padding: 4px 20px; /* 5px, weil 2x5=10px*/
+    width: 100px;
+}
+footer{
+    background-color: darkgrey;
+    display: inline-block;
+    border-radius: 10px;
+    padding: 5px 5px 5px 5px;
+    position: fixed;
+    bottom: 1%;
+    right: 1%;
+}
+p{
+    margin: 1px 1px 1px 1px;
+}
+
+aside{
+    margin-top: 10px;
+    background-color: lightgoldenrodyellow;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+}
+@media screen and (max-width: 425px){
+    header p{
+        display: none;
+    }
+    header img{
+        height: 50px;
+        margin: 5px 10px 5px 5px;
+    }
+    h1{
+        font-size: 2em;
+        padding: 0px;
+    }
+    nav a{
+        margin: 5px 20px;
+    }
+}

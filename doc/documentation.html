@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>TutCheck-Doku</title>
+    <link rel="stylesheet" href="doc.css">
+</head>
+<body>
+<header>
+    <h1>Die TutCheck-Dokumentation</h1>
+    <p>
+        Im Nachfolgenden wird Ihnen die Website "TutCheck - Die Organisationsapp für Tutorinnen und Tutoren" im Detail
+        vorgestellt.<br>
+    </p>
+</header>
+<nav>
+    <ul id="außenUl">
+        <li><a href="#1">1. Beschreibung des Anwendungszenarios</a></li>
+        <li><a href="#2">2. Fachobjekte der Anwendung</a></li>
+        <li><a href="#3">3. Beschreibung und Begründung der Implementierungsentscheidungen</a></li>
+        <ul>
+            <li><a href="#3.1">3.1 Client</a></li>
+            <ul>
+                <li><a href="#3.1.1">3.1.1 Strukturierung der HTML-Seiten</a></li>
+                <li><a href="#3.1.2">3.1.2 Layout</a></li>
+                <li><a href="#3.1.3">3.1.3 Responsivität</a></li>
+            </ul>
+            <li><a href="#3.2">3.2 Server</a></li>
+            <ul>
+                <li><a href="#3.2.1">3.2.1 Modulstruktur</a></li>
+                <li><a href="#3.2.2">3.2.2 Unterstützte URLs/Endpunkte</a></li>
+            </ul>
+        </ul>
+        <li><a href="#4">4. Start der Anwendung</a></li>
+        <li><a href="#5">5. Autorenschaft der Quellcode-Dateien</a></li>
+    </ul>
+</nav>
+<main>
+    <article id="1" title="1. Beschreibung des Anwendungsszenarios">
+        <h2>1. Beschreibung des Anwendungsszenarios</h2>
+        <p>Diese Anwendung verfolgt das Ziel den Tutorinnen und Tutoren im Bereich der Organisation ihrer
+            Einzelunterrichtsstunden zu unterstützen. Eine geeignete Übersicht der bereits vorhandenen Einheiten, eine
+            vereinfachte Möglichkeit neue Tutoriumsstunden anzulegen sowie eine anschauliche Darstellung individueller
+            Einheiten sind die Kernaufgaben
+            dieser Anwendung. Die Tutorin oder der Tutor sollen möglichst effizient Arbeit und problemlos sich auf eine
+            anstehende Tutoriumseinheit vorbereiten können indem alle wichtigsten Informationen auf einem Blick
+            angezeigt werden. Hier bei geht es jedoch nicht darum schon bereits existierende Einheiten bearbeiten zu
+            können sondern lediglich um das Erstellen und das Anzeigen einer Einheit.</p>
+    </article>
+    <article id="2" title="2. Fachobjekte der Anwendung">
+        <h2>2. Fachobjekte der Anwendung</h2>
+        <p>
+            Die Anwendung nutzt dabei ein zentrales Fachobjekt, der sogenannten <b>Einheit</b>. Diese Einheit beinhaltet
+            alle relevanten Informationen wie den Namen des Studenten, das Fach, den Tag sowie die Start- und Enduhrzeit, den
+            Stundenlohn, die Lernziele sowie weitere Informationen für die Unterrichtseinheit. Im Rahmen der Anwendung
+            werden auch keine weiteren Fachobjekte benötigt. (Info: Prinzipiell gibt es eine Vielzahl von unterschiedlichen
+            Fächern, jedoch wurde im Zwecke der Anwendung die Anzahl auf fünf Fächer begrenzt. Mathe, Erdkunde, Chemie,
+            Biologie und Englisch stehen zur Auswahl. Grund: die Anwendung passt den Hintergrund zum Fach an,
+            daher keine freidefinierbare Eingabe des Faches möglich)
+        </p>
+    </article>
+    <article id="3" title="3. Beschreibung und Begründung der Implementierungsentscheidung">
+        <h2>3. Beschreibung und Begründung der Implementierungsentscheidung</h2>
+        <section id="3.1" title="3.1 Client">
+            <h3>3.1 Client</h3>
+            <section id="3.1.1" title="3.1.1 Strukturierung der HTML-Seiten">
+                <h4>3.1.1 Strukturierung der HTML-Seiten</h4>
+                <p>
+                    Innerhalb der Anwendung können 4 verschiedene HTML-Seiten angetroffen werden. Dabei handelt es sich um
+                    eine Listenseite, die alle bereits vorhandenen Einheiten anzeigt, eine Detailseite, die eine gezielte
+                    Einheit repräsentiert, eine HTML-Seite zum Anlegen einer neuen Unterrichtseinheit sowie eine
+                    Error-Seite, die nur dann auftritt, wenn man eine Detailseite per URL aufruft, die nicht existiert.
+                    Die einheitliche Struktur aller Seiten haben ein Navigationsmenü wodurch man zur Listenübersicht sowie
+                    auf die Seite zum Anlegen einer neuen Einheit kommen kann. Auf die Detailseite kommt man über die
+                    Listenübersicht, denn dort befinden sich pro Einheit ein Hyperlink, welche auf die individuelle
+                    Detailseite der Einheiten verweist. Wie bereits erwähnt können alle Seiten auch über die entsprechende
+                    URL angesprochen werden. Die Detailseite benötigt lediglich die ID, welcher als Parameter angegeben
+                    werden kann. Im Falle, dass sich die gegebene ID nicht im Speicher befindet, würde eine Error-Seite
+                    angezeigt werden. Diese Error-Seite hat dieselbe Navigation wie der Rest, wodurch man leicht zu den
+                    anderen Seiten gelangen kann. (Die nötigen URL-Anfragen finden Sie bei Punkt 3.2.2)
+                    <br><br>
+                    Grundlegend wurde die Struktur aus Header, Nav, Main, Aside und Footer aus den Vorlesungseinheiten
+                    übernommen. Es wurden jedoch auch semantiklose Elemente in Form von divs verwendet. Diese divs dienen
+                    lediglich dem Grund per CSS-Regeln auf bestimmte Bereiche der HTML-Seite zuzugreifen und diese optisch
+                    individuell bearbeiten zu können. (später Genaueres dazu)
+                </p>
+            </section>
+            <section id="3.1.2" title="3.1.2 Layout">
+                <h4>3.1.2 Layout</h4>
+                <p>
+                    Alle HTML-Seiten sind nach einem horizontal zentrierten System aufgebaut worden. Um dies zu ermöglichen
+                    wurden einige div-Elemente verwendet, die man individuell per Flexbox zentriert setzen konnte. Auf den
+                    Seiten <b>/neueEinheit</b> und <b>/detailseits?id=X</b> wurde zusätzlich Grid zum Seitenaufbau
+                    verwendet, da dies eine einfachere Handhabung der einzelnen Kacheln bietet. Alle HTML-Seiten beruhen
+                    dabei auf eine einheitliche Optik. Sowohl Header & Navi als auch Aside & Footer werden auf allen
+                    Seiten gleich behandelt. Dies wurde im Dokument <b>allgemein.css</b> definiert, welches man unter
+                    <b>/TutCheck/public/css/</b> findet. Die individuellen Seiten Layouts wurden dabei getrennt in
+                    eigene CSS-Dateien verpackt, die sich ebenfalls in dem eben genannten Verzeichnis befinden.
+                </p>
+            </section>
+            <section id="3.1.3" title="3.1.3 Responsivität">
+                <h4>3.1.3 Responsivität</h4>
+                <p>
+                    Vorab zu erwähnen ist es, dass die jeweiligen HTML-Seiten nicht alle Breakpoints besitzen die definiert
+                    wurden, da jede Seite optisch unterschiedliche Möglichkeiten aufweisen. Auf die ganze Anwendung gesehen
+                    gibt es jedoch 4 Breakpoints:
+                </p>
+                <ul>
+                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bildschirmbreite <= 425px</li>
+                    <li>425px < Bildschirmbreite <= 625px</li>
+                    <li>625px < Bildschirmbreite <= 800px</li>
+                    <li>800px < Bildschirmbreite &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                </ul>
+                <p>
+                Wir gehen davon aus, dass die Bildschirmbreite größer als 800px ist damit die Veränderungen im Kontext
+                nachvollziehbarer sind. D.H. > 800px nehmen wir als Standardzustand an.
+                Durch den ersten Breakpoint (625px < X <= 800px) verändert sich das Aussehen der Seite zum Anlegen einer
+                neuen Einheit geringfügig. Die beiden Textareas für die Lernziele und weiteren Infos werden nun, statt
+                nebeneinander, untereinander angezeigt.
+                Der nächste Breakpoint (425px < X <= 625px) verändert die Anordnung der Kacheln auf der Detailseite
+                sowie auf der Seite zum Anlegen einer neuen Einheit und lässt die Spalte "Wochentag" auf der
+                Übersichtsseite verschwinden.
+                Der letzte Breakpoint (<=425px) verkleinert den Titel sowie das Titelbild. Außerdem verkleinert es
+                den Abstand der Link-Elemente im Nav-Element und lässt die Spalte "Fach" auf der Übersichtsseite
+                verschwinden.
+                Die unterschiedlichen Breakpoints ermöglichen es die Anwendung auch auf verschieden großen Geräten
+                anzuwenden. Somit besteht die Möglichkeit, die Anwendung von einem großen Bildschirm bis hin zu einem
+                Smartphone zu nutzen.
+                </p>
+            </section>
+        </section>
+        <section id="3.2" title="3.2 Server">
+            <h3>3.2 Server</h3>
+            <section id="3.2.1" title="3.2.1 Modulstruktur">
+                <h4>3.2.1 Modulstruktur</h4>
+               <p> Die Anwendung verwendet grundlegend das Konzept von Express, um mit den unterschiedlichen Web-Anfragen
+                   umzugehen. Dafür existiert eine außerhalb definierte JavaScript-Datei namens <b>routes.js</b> welche man unter
+                   dem Ordner <b>TutCheck/routes/</b> finden kann. Die innerhalb der routes.js definierten Web-Anfragen verwenden
+                   vordefinierte Views im Formant von EJS, welche man unter <b>TutCheck/views/</b> finden kann.
+                   EJS ermöglicht es die einzelnen Webseiten dynamisch, ggf. mit Parametern, zu erzeugen. Einzelne, auf
+                   allen Seiten wiederkehrende, Teilbereiche konnten dadurch einfach ausgelagert werden, wie z.B.
+                   <b>header&navi</b> und <b>aside&footer</b>, und per include auf der anzuzeigenden Webseite hinzuzufügen.
+                   Um einzelne Anfragen mit Parametern verarbeiten zu können wird <b>body-parser</b> als Middelware verwendet,
+                   die die eintretenden Anfragen und dessen Body für die einzelnen Abfragen verfügbar macht.
+                   Dies ermöglicht u.A. das Anlegen von einer neuen Einheit als auch das Aufrufen einer Detailseite eines
+                   bestimmten Eintrags. Neben <b>express</b> und <b>ejs</b> wurde zusätzlich auch noch eine weitere
+                   dependency hinzugefügt: <b>alert</b>. Alert ermöglicht es, dass ein Benachrichtigungsfeld nach dem erstellen
+                   einer neuen Einheit auf dem Hauptbildschirm erscheint (im Falle, dass man mehr als nur einen Bildschirm hat,
+                    sollte man auf dem Hauptbildschirm gucken).</p>
+            </section>
+            <section id="3.2.2" title="3.2.2 Unterstützte URLs/Endpunkte">
+                <h4>3.2.2 Unterstützte URLs/Endpunkte</h4>
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="url">URL</th>
+                        <th class="http">HTTP-Methode</th>
+                        <th class="aktion">Aktion</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="url">/</td>
+                        <td class="http">GET</td>
+                        <td class="aktion">Anzeigen der Startseite. In dieser App ist die Startseite auch die Liste.</td>
+                    </tr>
+                    <tr>
+                        <td class="url">/detailseite?id=X</td>
+                        <td class="http">GET</td>
+                        <td class="aktion">Verweist auf die Detailseite einer Einheit. Hier steht das X für eine Variable, welche eine
+                            Zahl repräsentiert. Im Fall, dass die Zahl, welche die ID eines Eintrags entspricht, in der
+                            "Datenhaltung" existiert, wird die entsprechende Detailseite angezeigt. Andernfalls wird die
+                            Error-HTML-Seite aufgerufen.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="url">/neueEinheit</td>
+                        <td class="http">GET</td>
+                        <td class="aktion">Verweist auf die HTML-Seite, wo man eine neue Lerneinheit erstellen kann.</td>
+                    </tr>
+                    <tr>
+                        <td class="url">/neueEinheit</td>
+                        <td class="http">POST</td>
+                        <td class="aktion">
+                            Über diese HTTP-Anfrage wird eine neue Lerneinheit erstellt. Dabei entnimmt der Server die
+                            wichtigen Parameter aus der POST-Query heraus, welche wiederum durch eine Methode zur
+                            endgültigen Erstellung einer Tutoriumseinheit verwendet werden. Daraus folgt, dass man auch
+                            lediglich über die URL eine neue Einheit erstellen kann solange die nötigen Parameter
+                            übergeben werden.(Eine POST-Query ohne Parameter würde nachfolgend Probleme verursachen,
+                            daher sollte man möglichst die vorgesehene HTML-Seite zur Erstellung einer neuen Einheit
+                            verwenden, da Sie die relevanten Parameter voraussetzt bevor man eine neue Einheit erstellen kann.)
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+    </article>
+    <article id="4" title="4. Start der Anwendung">
+        <h2>4. Start der Anwendung</h2>
+        <p>
+            Um die Anwendung zu starten müssen folgende Schritte ausgeführt werden:<br><br>
+            1. Starten des Servers durch <b>node server.js</b> oder <b>nodemon server.js</b> (wenn sich das Terminalfenster im selben Ordner befindet)<br>
+            2. Über die URL <b>http://localhost:8060/</b> ist anschließend die Anwendung erreichbar.<br><br>
+            Die Anwendung erscheint dann mit der Listenübersicht der bereits vorhandenen Tutoriumseinheiten.<br>
+            Relevante Dependencies sollten vorab installiert sein. Darunter zählen <b>express</b>, <b>ejs</b> und <b>alert</b>,
+            welche man mittels npm install --save "paketname" installieren kann.<br>
+            Desweitern ist Node eine weitere Voraussetzung.
+        </p>
+    </article>
+    <article id="5" title="5. Autorenschaft der Quellcode-Dateien">
+        <h2>5. Autorenschaft der Quellcode-Dateien</h2>
+        <table>
+            <thead>
+            <tr>
+                <th class="autorIn">AutorIn ( Name, Matrikelnr. )</th>
+                <th class="dateien">Dateien</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="autorIn">Felix Strothmann (7201292)</td>
+                <td class="dateien">
+                    <ul id="class5">
+                        <li>Alles</li>
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </article>
+</main>
+<aside>
+
+</aside>
+<footer>
+
+</footer>
+</body>
+</html>

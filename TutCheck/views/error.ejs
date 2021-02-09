@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Fehler</title>
+    <title>Error</title>
+    <link rel="stylesheet" href="css/allgemein.css">
 </head>
 <body>
+<%-include("header&navi.ejs")%>
 <main>
-    <h1>Error</h1>
-    <p>Diese Seite existiert nicht!</p>
+    <h2>Error</h2>
+    <p>Gewünschte Einheit existiert nicht!</p>
+    <p>Bitte wählen Sie eine andere ID als Parameter oder klicken Sie auf den entsprechenden Link der Einheit auf der Tutoriumsliste!</p>
 </main>
-<footer>
-    <p>&copy; by WebTech Inc</p>
-</footer>
+<%- include("aside&footer") %>
 </body>
 </html>
