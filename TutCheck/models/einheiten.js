@@ -14,6 +14,8 @@ var Einheit2 = new Einheit(2,"Sabine Wasser","Erdkunde","Mittwoch","10:00","12:0
 var Einheit3 = new Einheit(3,"Axel Schweiss","Englisch","Montag","15:00","16:00",13.50,"Present perfect",undefined);
 var Einheit4 = new Einheit(4,"Peter Pan","Biologie","Samstag","09:30","12:00",10.50,"Genetik & Evolutionstheorie","Sehr langsamer lerner, aber gibt sich viel Mühe");
 var Einheit5 = new Einheit(5,"Rosa von und Zuhause","Chemie","Donnerstag","19:00","21:00",17.50,"Hydrolyse, Batterie (Redoxreaktion) & allgemeine Probleme mit dem Periodensystem",undefined);
+
+//Meine Datenhaltung
 einheiten = [Einheit1,Einheit2,Einheit3,Einheit4,Einheit5];
 
 function neueEinheit(student,fach,wochentag,zeitVon,zeitBis,stundenlohn,lernziele,weitereInfos){
